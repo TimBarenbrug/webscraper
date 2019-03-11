@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+<title>Changelog Archives - Support Documentation</title>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQIPWVNWARADVlFTAQYDUQ=="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(16),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(17),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,v="fn"+h,w="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(v,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(v,function(t,n){i(w,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(v,function(t,n){i(w,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(19)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(19)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(19)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(19)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):v?v(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(19)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,v=l.SI,w="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(w,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!v&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===w||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(16),s=t(17),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t,n){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now(),!1,n])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){if(!o)return!1;if(t!==o)return!1;if(!n)return!0;if(!i)return!1;for(var e=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==e[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}n.exports={agent:o,version:i,match:r}},{}],16:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],17:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],18:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],19:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(17),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=m(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[g[e]];return d&&d.push([b,e,r,a]),a}}function p(t,n){y[t]=m(t).concat(n)}function h(t,n){var e=y[t];if(e)for(var r=0;r<e.length;r++)e[r]===n&&e.splice(r,1)}function m(t){return y[t]||[]}function v(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",g[e]=n,n in u||(u[n]=[])})}var y={},g={},b={on:p,addEventListener:p,removeEventListener:h,emit:e,get:v,listeners:m,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(16),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!E++){var t=x.info=NREUM.info,n=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(g,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+x.offset],null,"api");var e=p.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===p.readyState&&i()}function i(){c("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-x.offset}var s=(new Date).getTime(),c=t("handle"),f=t(16),u=t("ee"),d=t(15),l=window,p=l.document,h="addEventListener",m="attachEvent",v=l.XMLHttpRequest,w=v&&v.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:v,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var y=""+location,g={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1118.min.js"},b=v&&w&&w[h]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:b,userAgent:d};t(12),p[h]?(p[h]("DOMContentLoaded",i,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",o),l[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,O=t(18)},{}]},{},["loader",2,10,4,3]);</script>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
+<link href="http://gmpg.org/xfn/11" rel="profile"/>
+<link href="https://support.hypernode.com/xmlrpc.php" rel="pingback"/>
+<!-- This site is optimized with the Yoast SEO plugin v9.7 - https://yoast.com/wordpress/plugins/seo/ -->
+<link href="https://support.hypernode.com/category/changelog/" rel="canonical">
+<link href="https://support.hypernode.com/category/changelog/page/2/" rel="next">
+<meta content="en_US" property="og:locale">
+<meta content="object" property="og:type">
+<meta content="Changelog Archives - Support Documentation" property="og:title"/>
+<meta content="https://support.hypernode.com/category/changelog/" property="og:url"/>
+<meta content="Support Documentation" property="og:site_name"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="Changelog Archives - Support Documentation" name="twitter:title"/>
+<meta content="@hypernode" name="twitter:site"/>
+<!-- / Yoast SEO plugin. -->
+<link href="//support.hypernode.com" rel="dns-prefetch"/>
+<link href="//s0.wp.com" rel="dns-prefetch"/>
+<link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+<link href="//static.hypernode.com" rel="dns-prefetch"/>
+<link href="//s.w.org" rel="dns-prefetch"/>
+<link href="https://support.hypernode.com/category/changelog/feed/" rel="alternate" title="Support Documentation » Changelog Category Feed" type="application/rss+xml"/>
+<meta content="category" property="ga:pagetype"/><link href="https://support.hypernode.com/wp-content/themes/hypernode/resource/media/favicon.ico" rel="shortcut icon"/>
+<link href="https://support.hypernode.com/wp-content/themes/hypernode/resource/media/apple-icon-57x57.png" rel="apple-touch-icon" sizes="57x57"/>
+<link href="https://support.hypernode.com/wp-content/themes/hypernode/resource/media/apple-icon-60x60.png" rel="apple-touch-icon" sizes="60x60"/>
+<link href="https://support.hypernode.com/wp-content/themes/hypernode/resource/media/apple-icon-72x72.png" rel="apple-touch-icon" sizes="72x72"/>
+<link href="https://support.hypernode.com/wp-content/themes/hypernode/resource/media/apple-icon-76x76.png" rel="apple-touch-icon" sizes="76x76"/>
+<link href="https://support.hypernode.com/wp-content/themes/hypernode/resource/media/apple-icon-114x114.png" rel="apple-touch-icon" sizes="114x114"/>
+<link href="https://support.hypernode.com/wp-content/themes/hypernode/resource/media/apple-icon-120x120.png" rel="apple-touch-icon" sizes="120x120"/>
+<link href="https://support.hypernode.com/wp-content/themes/hypernode/resource/media/apple-icon-144x144.png" rel="apple-touch-icon" sizes="144x144"/>
+<link href="https://support.hypernode.com/wp-content/themes/hypernode-docs/resource/mediaes/apple-icon-152x152.png" rel="apple-touch-icon" sizes="152x152"/>
+<link href="https://support.hypernode.com/wp-content/themes/hypernode/resource/media/apple-icon-180x180.png" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="https://support.hypernode.com/wp-content/themes/hypernode/resource/media/ms-icon-144x144.png" name="msapplication-TileImage"/>
+<meta content="#00366C" name="msapplication-TileColor"/>
+<meta content="#00366C" name="theme-color"/>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PDL826');</script>
+<!-- End Google Tag Manager --><link href="https://support.hypernode.com/wp-content/plugins/crayon-syntax-highlighter/themes/light-abite/light-abite.css?ver=_2.7.2_beta" id="crayon-theme-light-abite-css" media="all" rel="stylesheet" type="text/css">
+<link href="https://support.hypernode.com/wp-content/plugins/crayon-syntax-highlighter/fonts/monaco.css?ver=_2.7.2_beta" id="crayon-font-monaco-css" media="all" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,800" id="source-0-css" media="" rel="stylesheet" type="text/css">
+<link href="https://static.hypernode.com/bootstrap-4.1.0-dist/css/bootstrap.min.css" id="source-1-css" media="" rel="stylesheet" type="text/css">
+<link href="https://support.hypernode.com/wp-content/themes/hypernode/resource/sync/fontawesome/css/fontawesome-all.css" id="source-2-css" media="" rel="stylesheet" type="text/css">
+<link href="https://support.hypernode.com/wp-content/themes/hypernode/resource/sync/css/main.css" id="source-3-css" media="" rel="stylesheet" type="text/css">
+<link href="https://support.hypernode.com/wp-content/themes/hypernode-docs/style.css?ver=1.8.1" id="hypernode-docs-css" media="all" rel="stylesheet" type="text/css">
+<link href="https://support.hypernode.com/wp-content/plugins/jetpack/css/jetpack.css?ver=7.0.1" id="jetpack_css-css" media="all" rel="stylesheet" type="text/css">
+<script src="https://support.hypernode.com/wp-includes/js/jquery/jquery.js?ver=1.12.4" type="text/javascript"></script>
+<link href="//v0.wordpress.com" rel="dns-prefetch">
+<style type="text/css">img#wpstats{display:none}</style>
+</link></link></link></link></link></link></link></link></link></meta></meta></link></link></meta></head>
+<body class="archive category category-changelog category-27 hypernode-docs has-sidebar">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-PDL826" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<section class="dark-blue-theme first">
+<div class="container-header">
+<div class="top-menu">
+<a href="https://www.hypernode.com/">
+<img class="logo top" src="https://static.hypernode.com/img/Hypernode-logo-diap.svg"/>
+</a>
+<div class="top-nav">
+<span class="far fa-bars sidebar-toggler"></span>
+<div class="links" id="sidebar">
+<ul class="">
+<li class="">
+<a href="https://www.hypernode.com/features/">Features</a>
+</li>
+<li class="">
+<a href="https://www.hypernode.com/pricing/">Pricing</a>
+</li>
+<li class="">
+<a href="https://www.hypernode.com/agency-focused/">Agency program</a>
+</li>
+<li class="">
+<a href="https://www.hypernode.com/support/">Support</a>
+</li>
+<li class="">
+<a href="https://www.hypernode.com/about-us/">About us</a>
+</li>
+<li class="">
+<a class="" href="https://www.hypernode.com/blog">Blog</a>
+</li>
+<li class="">
+<a class="" href="https://my.hypernode.com/register/">Sign up</a>
+</li>
+<li class="">
+<a class="" href="https://auth.hypernode.com/login/">Log in</a>
+</li>
+<a class="btn orange" href="https://my.hypernode.com/register/">Start free trial</a>
+<div class="social-links">
+<a href="https://twitter.com/Hypernode_com" target="_blank"><span class="fab fa-twitter"></span></a>
+<a href="https://www.facebook.com/HypernodeCOM/" target="_blank"><span class="fab fa-facebook-f"></span></a>
+<a href="https://www.linkedin.com/company/byte-b-v-/" target="_blank"><span class="fab fa-linkedin-in"></span></a>
+<a href="https://stackoverflow.com/jobs/companies/byte-bv" target="_blank"><span class="fab fa-stack-overflow"></span></a>
+<a href="https://github.com/ByteInternet" target="_blank"><span class="fab fa-github"></span></a>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="main-content white-theme">
+<div class="wrapper-main"><div id="content-panel">
+<div class="page-header">
+<h1>Changelog</h1>
+</div>
+<div class="tab-wrapper"><ul class="tab-menu"><li class="term-changelog current"><a href="https://support.hypernode.com/category/changelog/">All</a></li><li class="term-platform"><a href="https://support.hypernode.com/category/changelog/platform/">Platform</a></li><li class="term-magereport"><a href="https://support.hypernode.com/category/changelog/magereport/">MageReport</a></li><li class="term-api"><a href="https://support.hypernode.com/category/changelog/api/">API</a></li><li class="term-control-panel"><a href="https://support.hypernode.com/category/changelog/control-panel/">Control panel</a></li></ul></div><div class="page-content post-loop"><div class="sub-article"><h2 class="post-title style-h4">Release 6249: Larger tmp_table_size and max_heap if tmp_on_data option enabled</h2><p><p>In this release we will increase the tmp_table_size and max_heap_table_size setting from the default 64MB value that is configured on Hypernode to 256MB if the previously existing configurable option mysql_tmp_on_data_enabled is enabled. The mysql_tmp_on_data_enabled setting that can be configured using the hypernode-api or using the hypernode-systemctl command-line tool enables users to make MySQL store temporary […]</p>
+<a class="post-link" href="https://support.hypernode.com/changelog/release-6249-larger-tmp_table_size-and-max_heap-if-tmp_on_data-option-enabled/" title="Release 6249: Larger tmp_table_size and max_heap if tmp_on_data option enabled">Read more</a></p></div><div class="sub-article"><h2 class="post-title style-h4">Release 6242: Additional automated problem diagnostic emails</h2><p><p>In this release we add automated email notifications for two more common issues that are sometimes detected by the diagnostic processes in our autohealing. Redis out of memory Occasionally the autohealing will detect that the Redis instance on the node is out of memory and no more keys can be placed in the cache. When […]</p>
+<a class="post-link" href="https://support.hypernode.com/changelog/release-6242-additional-automated-problem-diagnostic-emails/" title="Release 6242: Additional automated problem diagnostic emails">Read more</a></p></div><div class="sub-article"><h2 class="post-title style-h4">Release 6241: new Grow plan with more memory</h2><p><p>Today we released a new Grow plan with more memory, for the same price as the old Grow plan. A Grow plan now gets you 3GB RAM, 640MB of Redis cache, 2 cores and 44GB of storage. This makes this plan more compatible with newer Magento 2 versions. The Grow Development plan has also been […]</p>
+<a class="post-link" href="https://support.hypernode.com/changelog/release-6241-new-grow-plan-with-more-memory/" title="Release 6241: new Grow plan with more memory">Read more</a></p></div><div class="sub-article"><h2 class="post-title style-h4">Release 6239: Block PayPal Payflow denial of service attack</h2><p><p>In this release we will deploy a new fail2ban rule that will block IPs based on repeated requests to the /paypal/transparent/requestSecureToken/ endpoint of the PayPal Payflow extension. Malicious requests to this endpoint seem to be able to cause a denial of service by letting the shop issue a suspiciously large amount of test authorizations even […]</p>
+<a class="post-link" href="https://support.hypernode.com/changelog/release-6239-block-paypal-payflow-denial-of-service-attack/" title="Release 6239: Block PayPal Payflow denial of service attack">Read more</a></p></div><div class="sub-article"><h2 class="post-title style-h4">Release 6233: Block any requests for Adminer by default</h2><p><p>In a previous release we deployed server-side mitigation to block requests to Adminer URLs from various countries that were known to be the origin of ongoing brute force attacks. Initially we only blocked a conservative amount of countries to not impact any legitimate use of Adminer from the countries our customers generally operate from. Additionally, […]</p>
+<a class="post-link" href="https://support.hypernode.com/changelog/release-6233-block-any-requests-for-adminer-by-default/" title="Release 6233: Block any requests for Adminer by default">Read more</a></p></div><div class="sub-article"><h2 class="post-title style-h4">Release 6232: PHP 5.6.40 and a Dehydrated tweak</h2><p><p>We have updated our PHP 5.6 version from 5.6.36-1 to 5.6.40-1. For a complete list of changes see the PHP 5.6 ChangeLog. This update will be deployed on all Hypernodes that have PHP 5.6 enabled over the course of this week. In other news, we have altered our Dehydrated fork to keep an accounts directory […]</p>
+<a class="post-link" href="https://support.hypernode.com/changelog/release-6232-php-5-6-40-and-a-dehydrated-tweak/" title="Release 6232: PHP 5.6.40 and a Dehydrated tweak">Read more</a></p></div><div class="sub-article"><h2 class="post-title style-h4">release-22: Change your PHP version from Control Panel</h2><p><p>Change your PHP version Now you can change the PHP version directly from the PHP page. Simply select a version and make the change.</p>
+<a class="post-link" href="https://support.hypernode.com/uncategorized/release-22-change-your-php-version-from-control-panel/" title="release-22: Change your PHP version from Control Panel">Read more</a></p></div><div class="sub-article"><h2 class="post-title style-h4">20190218.1 – Updated credit card hijack with more recent malware scanner signatures</h2><p><p>In this release we have once again updated the MageReport credit card hijack check with the newer signatures. These signatures are the ones that are also already being used for the nightly platform wide Magento malware scan.</p>
+<a class="post-link" href="https://support.hypernode.com/changelog/20190218-1-updated-credit-card-hijack-with-more-recent-malware-scanner-signatures/" title="20190218.1 – Updated credit card hijack with more recent malware scanner signatures">Read more</a></p></div><div class="sub-article"><h2 class="post-title style-h4">Release 6202: Mark processes as unkillable when out of memory</h2><p><p>In this release we add a command that can be used to start processes that will never be OOM-killed even when the system is completely out of memory. When a Hypernode runs low on memory and a process lays claim on previously allocated pages when there is no more RAM available, the Linux kernel will […]</p>
+<a class="post-link" href="https://support.hypernode.com/changelog/release-6202-mark-processes-as-unkillable-when-out-of-memory/" title="Release 6202: Mark processes as unkillable when out of memory">Read more</a></p></div><div class="sub-article"><h2 class="post-title style-h4">release-21: My Hypernode &amp; PHP</h2><p><p>My Hypernode We’ve added a simple page with some specs of your Hypernode. Such as CPU core count, storage usage, RAM and more.   PHP version The second page added in this release is the PHP version page. See what PHP version your Hypernode is running there. Changing the PHP version from the page is […]</p>
+<a class="post-link" href="https://support.hypernode.com/changelog/release-21-my-hypernode-php/" title="release-21: My Hypernode &amp; PHP">Read more</a></p></div></div><div class="blogs-navigation">
+<ul><li class="current"><span aria-current="page">1</span></li>
+<li class="page larger"><a href="https://support.hypernode.com/category/changelog/page/2/" title="Page 2">2</a></li>
+<li class="page larger"><a href="https://support.hypernode.com/category/changelog/page/3/" title="Page 3">3</a></li>
+<li class="page larger"><a href="https://support.hypernode.com/category/changelog/page/4/" title="Page 4">4</a></li>
+<li class="page larger"><a href="https://support.hypernode.com/category/changelog/page/5/" title="Page 5">5</a></li>
+<li class="page larger"><a href="https://support.hypernode.com/category/changelog/page/6/" title="Page 6">6</a></li>
+<li class="page larger"><a href="https://support.hypernode.com/category/changelog/page/7/" title="Page 7">7</a></li>
+<li class="extend"><span>...</span></li>
+<li class="nextpostslink"><a href="https://support.hypernode.com/category/changelog/page/2/" rel="next">›</a></li>
+<li class="last"><a href="https://support.hypernode.com/category/changelog/page/26/">26</a></li>
+</ul>
+</div></div><div class="sidebar"><div class="toggler-container" id="content-list-toggler"><span class="fa fa-bars"></span><span class="fa fa-times"></span></div><div class="sidebar-widget widget_search" id="search-2"><form action="https://support.hypernode.com/" class="search-form" method="get" role="search">
+<input class="search-field" name="s" placeholder="Search documentation" type="search" value=""/>
+<button class="search-button" type="submit">
+<span class="fal fa-search"></span>
+<span class="screen-reader-text">Search</span>
+</button>
+</form></div><div class="sidebar-widget widget_nav_menu" id="nav_menu-2"><div class="menu-menu-1-container"><ul class="menu" id="menu-menu-1"><li id="menu-item-503"><a data-icon="j" href="/">Home</a></li>
+<li class="menu-item-has-children" id="menu-item-6402"><a data-icon="c" href="https://support.hypernode.com/knowledgebase_category/getting-started/">Getting started <span class="article-count">09</span></a>
+<ul class="sub-menu">
+<li id="menu-item-1000006062"><a href="https://support.hypernode.com/knowledgebase/hypernode-trial/">About your Hypernode trial</a></li>
+<li id="menu-item-1000000025"><a href="https://support.hypernode.com/knowledgebase/check-if-everything-works/">Check if everything works</a></li>
+<li id="menu-item-1000005118"><a href="https://support.hypernode.com/knowledgebase/choose-and-order-a-hypernode/">Choose the right Hypernode for your shop</a></li>
+<li id="menu-item-1000005303"><a href="https://support.hypernode.com/knowledgebase/configuring-shop-use-https/">Configuring your shop to only use HTTPS</a></li>
+<li id="menu-item-1000000026"><a href="https://support.hypernode.com/knowledgebase/go-live-with-your-hypernode/">Go live with your Hypernode</a></li>
+<li id="menu-item-1000000030"><a href="https://support.hypernode.com/knowledgebase/add-keys-to-the-ssh-keymanager/">How to add keys to the SSH Keymanager</a></li>
+<li id="menu-item-1000006368"><a href="https://support.hypernode.com/knowledgebase/how-to-get-started-with-your-hypernode-trial/">How to get started with your Hypernode trial</a></li>
+<li id="menu-item-1000000023"><a href="https://support.hypernode.com/knowledgebase/migrating-your-magento-to-hypernode/">Migrate Magento to Hypernode</a></li>
+<li id="menu-item-1000005188"><a href="https://support.hypernode.com/knowledgebase/optimize-performance-shop-start/">Optimize the performance of your shop: where to start?</a></li>
+</ul>
+</li>
+<li class="menu-item-has-children" id="menu-item-6403"><a data-icon="i" href="https://support.hypernode.com/knowledgebase/go-live-with-your-hypernode/">Go live with your Hypernode <span class="article-count">04</span></a>
+<ul class="sub-menu">
+<li id="menu-item-6405"><a href="https://support.hypernode.com/knowledgebase/how-to-use-nginx/">Check your Nginx configuration</a></li>
+<li id="menu-item-6404"><a href="https://support.hypernode.com/knowledgebase/check-if-everything-works/">Test if everything works</a></li>
+<li id="menu-item-6406"><a href="https://magereport.com/">Optimize your shop with MageReport</a></li>
+<li id="menu-item-6407"><a href="https://support.hypernode.com/knowledgebase/go-live-with-your-hypernode/">Migrate the shop again and change DNS</a></li>
+</ul>
+</li>
+<li class="menu-item-has-children" id="menu-item-1500000083"><a data-icon="about-hypernode" href="https://support.hypernode.com/knowledgebase_category/about-hypernode/">About Hypernode <span class="article-count">03</span></a>
+<ul class="sub-menu">
+<li id="menu-item-1000006396"><a href="https://support.hypernode.com/knowledgebase/emergency-support/">Emergency Support (outside of office hours)</a></li>
+<li id="menu-item-1000006228"><a href="https://support.hypernode.com/knowledgebase/hypernode-cloud-providers-combell-openstack-digitalocean-and-amazon/">Hypernode – cloud providers Combell OpenStack, DigitalOcean and Amazon</a></li>
+<li id="menu-item-1000000137"><a href="https://support.hypernode.com/knowledgebase/practical-info/">What is Hypernode hosting for Magento shops?</a></li>
+</ul>
+</li>
+<li class="menu-item-has-children" id="menu-item-1500000081"><a data-icon="administration" href="https://support.hypernode.com/knowledgebase_category/administration/">Administration <span class="article-count">03</span></a>
+<ul class="sub-menu">
+<li id="menu-item-1000006172"><a href="https://support.hypernode.com/knowledgebase/cancel-your-hypernode-plan/">Cancel your Hypernode plan</a></li>
+<li id="menu-item-1000006157"><a href="https://support.hypernode.com/knowledgebase/order-a-hypernode-plan/">Order a Hypernode plan</a></li>
+<li id="menu-item-1000006159"><a href="https://support.hypernode.com/knowledgebase/upgrade-or-downgrade-your-hypernode-plan/">Upgrade or downgrade your Hypernode plan</a></li>
+</ul>
+</li>
+<li class="menu-item-has-children" id="menu-item-1500000073"><a data-icon="b" href="https://support.hypernode.com/knowledgebase_category/caching/">Caching <span class="article-count">10</span></a>
+<ul class="sub-menu">
+<li id="menu-item-1000000468"><a href="https://support.hypernode.com/knowledgebase/configure-lestifpc/">Configure Lesti::FPC</a></li>
+<li id="menu-item-1000000465"><a href="https://support.hypernode.com/knowledgebase/configure-redis-magento1/">Configure Redis in Magento 1</a></li>
+<li id="menu-item-1000004491"><a href="https://support.hypernode.com/knowledgebase/configure-redis-magento2/">Configure Redis in Magento 2</a></li>
+<li id="menu-item-1000005459"><a href="https://support.hypernode.com/knowledgebase/how-to-flush-your-caches/">How to flush your caches</a></li>
+<li id="menu-item-1000001788"><a href="https://support.hypernode.com/knowledgebase/magento-cache-management/">Magento Cache management</a></li>
+<li id="menu-item-1000005180"><a href="https://support.hypernode.com/knowledgebase/varnish-not-serving-pages-ssl/">My Magento shop using Varnish is not caching pages over SSL</a></li>
+<li id="menu-item-1000004134"><a href="https://support.hypernode.com/knowledgebase/using-cloudflare-hypernode/">Using Cloudflare on Hypernode</a></li>
+<li id="menu-item-1000001396"><a href="https://support.hypernode.com/knowledgebase/varnish-on-magento1/">Varnish on Magento 1</a></li>
+<li id="menu-item-1000004367"><a href="https://support.hypernode.com/knowledgebase/varnish-on-magento2/">Varnish on Magento 2</a></li>
+<li id="menu-item-1000003339"><a href="https://support.hypernode.com/knowledgebase/warm-full-page-cache-lestifpc-varnish/">Warm your full page cache for LestiFPC or Varnish</a></li>
+</ul>
+</li>
+<li class="menu-item-has-children" id="menu-item-1500000082"><a data-icon="d" href="https://support.hypernode.com/knowledgebase_category/customer-account/">Customer account <span class="article-count">01</span></a>
+<ul class="sub-menu">
+<li id="menu-item-1000006197"><a href="https://support.hypernode.com/knowledgebase/hypernode-mails/">Hypernode mails: ServiceMail, ProductMail and NewsMail</a></li>
+</ul>
+</li>
+<li class="menu-item-has-children" id="menu-item-1500000044"><a data-icon="k" href="https://support.hypernode.com/knowledgebase_category/magento/">Magento <span class="article-count">28</span></a>
+<ul class="sub-menu">
+<li id="menu-item-1000004120"><a href="https://support.hypernode.com/knowledgebase/about-the-visbot-malware/">About the Visbot malware</a></li>
+<li id="menu-item-1000002632"><a href="https://support.hypernode.com/knowledgebase/create-robots-txt-magento1/">Create a robots.txt for your Magento 1 shop</a></li>
+<li id="menu-item-1000004946"><a href="https://support.hypernode.com/knowledgebase/create-robots-txt-magento-2/">Create a robots.txt for your Magento 2 shop</a></li>
+<li id="menu-item-1000005502"><a href="https://support.hypernode.com/knowledgebase/enable-clean-urls-magento/">Enable clean URL’s in Magento</a></li>
+<li id="menu-item-1000001110"><a href="https://support.hypernode.com/knowledgebase/fixing-bad-performance-caused-by-search-engines/">Fixing bad performance caused by bots and crawlers</a></li>
+<li id="menu-item-1000002392"><a href="https://support.hypernode.com/knowledgebase/fixing-invalid-form-key-ongeldige-formuliersleutel/">Fixing Invalid form key / Ongeldige formuliersleutel</a></li>
+<li id="menu-item-1000003234"><a href="https://support.hypernode.com/knowledgebase/fixing-webforms-pro-2-vulnerability/">Fixing the Webforms Pro 2 vulnerability</a></li>
+<li id="menu-item-1000002998"><a href="https://support.hypernode.com/knowledgebase/change-baseurl-magento1/">How to change your Magento 1 base URL</a></li>
+<li id="menu-item-1000005002"><a href="https://support.hypernode.com/knowledgebase/magento-multistore-using-multiple-domains/">How to set up a Magento Multistore using multiple domains</a></li>
+<li id="menu-item-1000006092"><a href="https://support.hypernode.com/knowledgebase/hypernode-pwa-hosting/">Hypernode and PWA hosting</a></li>
+<li id="menu-item-1000003855"><a href="https://support.hypernode.com/knowledgebase/importing-firewalled-magento-another-server/">Importing a firewalled Magento through another server</a></li>
+<li id="menu-item-1000000034"><a href="https://support.hypernode.com/knowledgebase/installing-magento-on-hypernode/">Installing Magento 1 on Hypernode</a></li>
+<li id="menu-item-1000002025"><a href="https://support.hypernode.com/knowledgebase/installing-magento-2-on-hypernode/">Installing Magento 2 on Hypernode</a></li>
+<li id="menu-item-1000005775"><a href="https://support.hypernode.com/knowledgebase/magento-2-1-8-redis-issue/">Magento 2.1.8 and Redis issue</a></li>
+<li id="menu-item-1000001136"><a href="https://support.hypernode.com/knowledgebase/magento-and-smarter-404-handling/">Magento and smarter 404 handling</a></li>
+<li id="menu-item-1000000800"><a href="https://support.hypernode.com/knowledgebase/magento-utc-hypernode/">Magento and UTC on Hypernode</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/magento-cache-management/">Magento Cache management</a></li>
+<li id="menu-item-1000001772"><a href="https://support.hypernode.com/knowledgebase/magento-log-cleaning/">Magento log cleaning</a></li>
+<li id="menu-item-1000003786"><a href="https://support.hypernode.com/knowledgebase/magento-patch-supee-8788-release-1-9-3/">Magento patch SUPEE 8788 and release 1.9.3</a></li>
+<li id="menu-item-1000001804"><a href="https://support.hypernode.com/knowledgebase/magereport-premium/">MageReport Premium</a></li>
+<li id="menu-item-1000005943"><a href="https://support.hypernode.com/knowledgebase/php-versions-magento-shop-hypernode/">PHP versions for your Magento shop on Hypernode</a></li>
+<li id="menu-item-1000002191"><a href="https://support.hypernode.com/knowledgebase/protecting-the-magento-2-api/">Protecting the Magento 2 API</a></li>
+<li id="menu-item-1000002365"><a href="https://support.hypernode.com/knowledgebase/resolving-502-bad-gateway-errors/">Resolving 502 Bad Gateway errors</a></li>
+<li id="menu-item-1000002199"><a href="https://support.hypernode.com/knowledgebase/php-7/">Speed up your shop with PHP 7 for Magento</a></li>
+<li id="menu-item-1000002809"><a href="https://support.hypernode.com/knowledgebase/spot-slow-extensions-using-phps-slow-log/">Spot slow extensions using PHP’s slow log</a></li>
+<li id="menu-item-1000001377"><a href="https://support.hypernode.com/knowledgebase/updating-magento1/">Updating Magento 1</a></li>
+<li id="menu-item-1000004145"><a href="https://support.hypernode.com/knowledgebase/using-a-basic-staging-environment-magento2/">Using a basic staging environment with Magento 2</a></li>
+<li id="menu-item-1000003510"><a href="https://support.hypernode.com/knowledgebase/using-sitemap-xml-magento1/">Using sitemap.xml in Magento 1</a></li>
+</ul>
+</li>
+<li class="menu-item-has-children" id="menu-item-1500000045"><a data-icon="l" href="https://support.hypernode.com/knowledgebase_category/migration/">Migration <span class="article-count">03</span></a>
+<ul class="sub-menu">
+<li><a href="https://support.hypernode.com/knowledgebase/importing-firewalled-magento-another-server/">Importing a firewalled Magento through another server</a></li>
+<li id="menu-item-1000000036"><a href="https://support.hypernode.com/knowledgebase/manually-migrate-magento-to-hypernode/">Manually migrate Magento to Hypernode</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/migrating-your-magento-to-hypernode/">Migrate Magento to Hypernode</a></li>
+</ul>
+</li>
+<li class="menu-item-has-children" id="menu-item-1500000046"><a data-icon="q" href="https://support.hypernode.com/knowledgebase_category/mysql/">MySQL <span class="article-count">04</span></a>
+<ul class="sub-menu">
+<li id="menu-item-1000002673"><a href="https://support.hypernode.com/knowledgebase/free-diskspace-ibdata1/">How to free disk space from MySQL ibdata1</a></li>
+<li id="menu-item-1000000319"><a href="https://support.hypernode.com/knowledgebase/use-heidisql/">How to use HeidiSQL</a></li>
+<li id="menu-item-1000000028"><a href="https://support.hypernode.com/knowledgebase/using-mysql-on-hypernode/">How to use MySQL on Hypernode</a></li>
+<li id="menu-item-1000000321"><a href="https://support.hypernode.com/knowledgebase/use-phpmyadmin/">How to use phpMyAdmin</a></li>
+</ul>
+</li>
+<li class="menu-item-has-children" id="menu-item-1500000003"><a data-icon="nginx-config" href="https://support.hypernode.com/knowledgebase_category/nginx-configuration/">Nginx configuration <span class="article-count">31</span></a>
+<ul class="sub-menu">
+<li id="menu-item-1000001102"><a href="https://support.hypernode.com/knowledgebase/adding-custom-headers-to-a-file-or-a-location/">Adding custom headers to a file or a location</a></li>
+<li id="menu-item-1000004327"><a href="https://support.hypernode.com/knowledgebase/basic-authentication-on-development-plans/">Basic authentication on Hypernode development plans</a></li>
+<li id="menu-item-1000000889"><a href="https://support.hypernode.com/knowledgebase/blocking-user-agents-referrers/">Blocking user agents and or referrer sites</a></li>
+<li id="menu-item-1000000039"><a href="https://support.hypernode.com/knowledgebase/blocking-allowing-ip-addresses-in-nginx/">Blocking/allowing IP-addresses in Nginx</a></li>
+<li id="menu-item-1000000038"><a href="https://support.hypernode.com/knowledgebase/configure-run-codes-and-run-types-in-nginx/">Configure run codes and run types in Nginx</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/create-robots-txt-magento1/">Create a robots.txt for your Magento 1 shop</a></li>
+<li id="menu-item-1000004680"><a href="https://support.hypernode.com/knowledgebase/create-reusable-config-for-custom-snippets/">Create reusable config for Nginx to include in custom snippets</a></li>
+<li id="menu-item-1000005192"><a href="https://support.hypernode.com/knowledgebase/deny-access-locations-directories/">Deny access to locations and directories</a></li>
+<li id="menu-item-1000004672"><a href="https://support.hypernode.com/knowledgebase/enable-magento-api/">Enable the Magento API</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/fixing-bad-performance-caused-by-search-engines/">Fixing bad performance caused by bots and crawlers</a></li>
+<li id="menu-item-1000000809"><a href="https://support.hypernode.com/knowledgebase/block-spammer-scanners/">How do I block spammer and scanners?</a></li>
+<li id="menu-item-1000001275"><a href="https://support.hypernode.com/knowledgebase/block-your-site-for-specific-countries/">How to block your site for specific countries</a></li>
+<li id="menu-item-1000002427"><a href="https://support.hypernode.com/knowledgebase/redirect-specific-domains-urls-https/">How to redirect specific domains or URL’s to HTTPS</a></li>
+<li id="menu-item-1000005627"><a href="https://support.hypernode.com/knowledgebase/rewrite-trailing-slash-seo-purposes/">How to rewrite a trailing slash for SEO purposes</a></li>
+<li id="menu-item-1000001444"><a href="https://support.hypernode.com/knowledgebase/how-to-secure-magmi/">How to secure Magmi on Magento</a></li>
+<li id="menu-item-1000003632"><a href="https://support.hypernode.com/knowledgebase/use-lets-encrypt-hypernode/">How to use Let’s Encrypt on Hypernode</a></li>
+<li id="menu-item-1000000037"><a href="https://support.hypernode.com/knowledgebase/how-to-use-nginx/">How to use Nginx</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/use-phpmyadmin/">How to use phpMyAdmin</a></li>
+<li id="menu-item-1000005895"><a href="https://support.hypernode.com/knowledgebase/limits-active-php-requests-per-ip/">Limits on active PHP requests per IP</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/magento-and-smarter-404-handling/">Magento and smarter 404 handling</a></li>
+<li id="menu-item-1000000562"><a href="https://support.hypernode.com/knowledgebase/multistore-in-subfolders-setup-in-nginx/">Multistore in subfolders setup in Nginx</a></li>
+<li id="menu-item-1000000040"><a href="https://support.hypernode.com/knowledgebase/protect-a-directory-with-a-password-in-nginx/">Protect your Magento store with a password in Nginx</a></li>
+<li id="menu-item-1000001097"><a href="https://support.hypernode.com/knowledgebase/redirect-all-http-traffic-to-https-in-nginx/">Redirect all HTTP traffic to HTTPS in Nginx</a></li>
+<li id="menu-item-1000005438"><a href="https://support.hypernode.com/knowledgebase/redirect-domains-staging-environment/">Redirect domains to your staging environment</a></li>
+<li id="menu-item-1000004485"><a href="https://support.hypernode.com/knowledgebase/redirect-from-or-to-www/">Redirect from or to www</a></li>
+<li id="menu-item-1000005777"><a href="https://support.hypernode.com/knowledgebase/restrict-access-admin-area-ip/">Restrict access to admin area by IP</a></li>
+<li id="menu-item-1000000041"><a href="https://support.hypernode.com/knowledgebase/rewriting-and-redirecting-urls-in-nginx/">Rewriting and redirecting URLs in Nginx</a></li>
+<li id="menu-item-1000000042"><a href="https://support.hypernode.com/knowledgebase/setting-the-server-name-in-nginx/">Setting the server name in Nginx</a></li>
+<li id="menu-item-1000002746"><a href="https://support.hypernode.com/knowledgebase/tuning-gzip-compression/">Speedup your Magento shop by tuning GZIP compression</a></li>
+<li id="menu-item-1000001020"><a href="https://support.hypernode.com/knowledgebase/using-a-basic-staging-environment-magento1/">Using a basic staging environment with Magento 1</a></li>
+<li id="menu-item-1000003520"><a href="https://support.hypernode.com/knowledgebase/using-geoip-data-hypernode/">Using GeoIP data on Hypernode</a></li>
+</ul>
+</li>
+<li class="menu-item-has-children" id="menu-item-1500000084"><a data-icon="m" href="https://support.hypernode.com/knowledgebase_category/other/">Other <span class="article-count">01</span></a>
+<ul class="sub-menu">
+<li id="menu-item-1000006272"><a href="https://support.hypernode.com/knowledgebase/about-the-geo-blocking-regulation/">About the Geo-blocking Regulation</a></li>
+</ul>
+</li>
+<li class="menu-item-has-children" id="menu-item-1500000029"><a data-icon="n" href="https://support.hypernode.com/knowledgebase_category/performance/">Performance <span class="article-count">17</span></a>
+<ul class="sub-menu">
+<li id="menu-item-1000005849"><a href="https://support.hypernode.com/knowledgebase/block-bad-bots-via-byte-service-panel/">Block bad bots via Byte Service Panel</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/configure-lestifpc/">Configure Lesti::FPC</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/configure-redis-magento1/">Configure Redis in Magento 1</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/configure-redis-magento2/">Configure Redis in Magento 2</a></li>
+<li id="menu-item-1000004023"><a href="https://support.hypernode.com/knowledgebase/configure-sessions-redis-magento1/">Configure your sessions in Redis for Magento 1</a></li>
+<li id="menu-item-1000001208"><a href="https://support.hypernode.com/knowledgebase/how-to-improve-your-magento-search/">How to improve your Magento Search?</a></li>
+<li id="menu-item-1000005847"><a href="https://support.hypernode.com/knowledgebase/http-compression/">HTTP compression</a></li>
+<li id="menu-item-1000001917"><a href="https://support.hypernode.com/knowledgebase/identifying-and-stopping-long-running-processes/">Identifying and stopping long running processes</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/limits-active-php-requests-per-ip/">Limits on active PHP requests per IP</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/magento-and-smarter-404-handling/">Magento and smarter 404 handling</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/magereport-premium/">MageReport Premium</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/php-versions-magento-shop-hypernode/">PHP versions for your Magento shop on Hypernode</a></li>
+<li id="menu-item-1000002888"><a href="https://support.hypernode.com/knowledgebase/profiling-magento-blackfire/">Profiling Magento with Blackfire</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/php-7/">Speed up your shop with PHP 7 for Magento</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/spot-slow-extensions-using-phps-slow-log/">Spot slow extensions using PHP’s slow log</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/using-cloudflare-hypernode/">Using Cloudflare on Hypernode</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/warm-full-page-cache-lestifpc-varnish/">Warm your full page cache for LestiFPC or Varnish</a></li>
+</ul>
+</li>
+<li class="menu-item-has-children" id="menu-item-1500000048"><a data-icon="p" href="https://support.hypernode.com/knowledgebase_category/security/">Security <span class="article-count">24</span></a>
+<ul class="sub-menu">
+<li><a href="https://support.hypernode.com/knowledgebase/about-the-visbot-malware/">About the Visbot malware</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/blocking-user-agents-referrers/">Blocking user agents and or referrer sites</a></li>
+<li id="menu-item-1000005513"><a href="https://support.hypernode.com/knowledgebase/creating-backups-tarsnap/">Creating your own backups with Tarsnap</a></li>
+<li id="menu-item-1000003125"><a href="https://support.hypernode.com/knowledgebase/emails-sended-hypernode-marked-spam/">Emails sent from a Hypernode are marked as spam</a></li>
+<li id="menu-item-1000004595"><a href="https://support.hypernode.com/knowledgebase/fixing-cart2quote-remote-code-execution/">Fixing the Cart2Quote Remote Code Execution</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/fixing-webforms-pro-2-vulnerability/">Fixing the Webforms Pro 2 vulnerability</a></li>
+<li id="menu-item-1000001365"><a href="https://support.hypernode.com/knowledgebase/how-to-apply-magento-patches-hypernode-knowledge-base/">How to apply Magento patches</a></li>
+<li id="menu-item-1000001729"><a href="https://support.hypernode.com/knowledgebase/how-to-fix-credit-card-hijack/">How to fix malicious JavaScript Credit card Hijack?</a></li>
+<li id="menu-item-1000001600"><a href="https://support.hypernode.com/knowledgebase/how-to-fix-guruinc-infection/">How to fix the GuruIncsite infection</a></li>
+<li id="menu-item-1000001628"><a href="https://support.hypernode.com/knowledgebase/how-to-install-magento-patch-supee-6788/">How to install Magento patch SUPEE-6788</a></li>
+<li id="menu-item-1000002958"><a href="https://support.hypernode.com/knowledgebase/how-to-protect-magento-from-amasty-product-feed-local-file-disclosure/">How to protect Magento from Amasty Product Feed local file disclosure</a></li>
+<li id="menu-item-1000001698"><a href="https://support.hypernode.com/knowledgebase/recover-a-hacked-magento-shop/">How to recover a hacked Magento shop</a></li>
+<li id="menu-item-1000001571"><a href="https://support.hypernode.com/knowledgebase/secure-magento-cacheleak/">How to secure Magento Cacheleak</a></li>
+<li id="menu-item-1000001448"><a href="https://support.hypernode.com/knowledgebase/how-to-secure-version-control-systemsplatforms/">How to secure Magento version control systems/platforms</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/how-to-secure-magmi/">How to secure Magmi on Magento</a></li>
+<li id="menu-item-1000001456"><a href="https://support.hypernode.com/knowledgebase/how-to-secure-development-files/">How to secure your Magento development files</a></li>
+<li id="menu-item-1000001454"><a href="https://support.hypernode.com/knowledgebase/how-to-protect-your-magento-store-against-brute-force/">Protecting Magento against brute force attacks</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/protecting-the-magento-2-api/">Protecting the Magento 2 API</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/restrict-access-admin-area-ip/">Restrict access to admin area by IP</a></li>
+<li id="menu-item-1000002675"><a href="https://support.hypernode.com/knowledgebase/scan-for-files-virusses-webshells-yara/">Scan your node for virusses and webshells with Yara</a></li>
+<li id="menu-item-1000001452"><a href="https://support.hypernode.com/knowledgebase/server-maintenance/">Server maintenance</a></li>
+<li id="menu-item-1000001861"><a href="https://support.hypernode.com/knowledgebase/the-importance-and-advantages-of-ssl/">The importance and advantages of SSL</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/updating-magento1/">Updating Magento 1</a></li>
+<li id="menu-item-1000005859"><a href="https://support.hypernode.com/knowledgebase/what-is-cryptojacking/">What is Cryptojacking?</a></li>
+</ul>
+</li>
+<li class="menu-item-has-children" id="menu-item-1500000030"><a data-icon="o" href="https://support.hypernode.com/knowledgebase_category/shell/">Shell <span class="article-count">06</span></a>
+<ul class="sub-menu">
+<li id="menu-item-1000005053"><a href="https://support.hypernode.com/knowledgebase/configure-hypernode-use-favorite-editor/">Configure Hypernode to use your favorite editor</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/add-keys-to-the-ssh-keymanager/">How to add keys to the SSH Keymanager</a></li>
+<li id="menu-item-1000000258"><a href="https://support.hypernode.com/knowledgebase/use-ssh-keys-on-hypernode/">How to use SSH Keys on Hypernode</a></li>
+<li id="menu-item-1000006136"><a href="https://support.hypernode.com/knowledgebase/hypernode-systemctl-cli-tool/">Hypernode-systemctl CLI tool</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/importing-firewalled-magento-another-server/">Importing a firewalled Magento through another server</a></li>
+<li id="menu-item-1000002821"><a href="https://support.hypernode.com/knowledgebase/login-hypernode-ssh/">Log in to the Hypernode with SSH</a></li>
+</ul>
+</li>
+<li class="menu-item-has-children" id="menu-item-1500000023"><a data-icon="h" href="https://support.hypernode.com/knowledgebase_category/stability/">Stability <span class="article-count">08</span></a>
+<ul class="sub-menu">
+<li id="menu-item-1000000031"><a href="https://support.hypernode.com/knowledgebase/backups-on-hypernode/">Backups on Hypernode</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/creating-backups-tarsnap/">Creating your own backups with Tarsnap</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/identifying-and-stopping-long-running-processes/">Identifying and stopping long running processes</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/limits-active-php-requests-per-ip/">Limits on active PHP requests per IP</a></li>
+<li id="menu-item-1000003992"><a href="https://support.hypernode.com/knowledgebase/my-hypernode-was-rebooted/">My Hypernode was rebooted</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/php-versions-magento-shop-hypernode/">PHP versions for your Magento shop on Hypernode</a></li>
+<li id="menu-item-1000001182"><a href="https://support.hypernode.com/knowledgebase/resolving-429-many-requests/">Resolving 429 Too Many Requests</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/resolving-502-bad-gateway-errors/">Resolving 502 Bad Gateway errors</a></li>
+</ul>
+</li>
+<li class="menu-item-has-children" id="menu-item-1500000035"><a data-icon="g" href="https://support.hypernode.com/knowledgebase_category/tools/">Tools <span class="article-count">28</span></a>
+<ul class="sub-menu">
+<li id="menu-item-1000004154"><a href="https://support.hypernode.com/knowledgebase/configure-xdebug-hypernode-vagrant/">Configure Xdebug on hypernode-vagrant</a></li>
+<li id="menu-item-1000004503"><a href="https://support.hypernode.com/knowledgebase/configure-sessions-redis-magento-2/">Configure your sessions in Redis for Magento 2</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/creating-backups-tarsnap/">Creating your own backups with Tarsnap</a></li>
+<li id="menu-item-1000000334"><a href="https://support.hypernode.com/knowledgebase/new-relic-performance-management/">Find your performance bottleneck with New Relic</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/add-keys-to-the-ssh-keymanager/">How to add keys to the SSH Keymanager</a></li>
+<li id="menu-item-1000006319"><a href="https://support.hypernode.com/knowledgebase/hypernode-elk-stack-kibana/">How to configure Kibana for Hypernode</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/how-to-improve-your-magento-search/">How to improve your Magento Search?</a></li>
+<li id="menu-item-1000004402"><a href="https://support.hypernode.com/knowledgebase/development-plans-for-your-magento-shop/">How to use Hypernode development plans for your Magento shop</a></li>
+<li id="menu-item-1000002089"><a href="https://support.hypernode.com/knowledgebase/how-to-use-vagrant-as-a-local-staging-environment/">How to use Hypernode Vagrant as a local staging environment</a></li>
+<li id="menu-item-1000006414"><a href="https://support.hypernode.com/knowledgebase/how-to-use-hypernode-vpn/">How to use Hypernode-vpn</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/use-lets-encrypt-hypernode/">How to use Let’s Encrypt on Hypernode</a></li>
+<li id="menu-item-1000006321"><a href="https://support.hypernode.com/knowledgebase/hypernode-elk-stack-rest-api/">How to use the ELK Stack REST API</a></li>
+<li id="menu-item-1000003280"><a href="https://support.hypernode.com/knowledgebase/hypernode-cli-tools-magerun-plugins/">Hypernode CLI tools and Magerun plugins</a></li>
+<li id="menu-item-1000006077"><a href="https://support.hypernode.com/knowledgebase/hypernode-docker/">Hypernode-docker</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/hypernode-systemctl-cli-tool/">Hypernode-systemctl CLI tool</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/importing-firewalled-magento-another-server/">Importing a firewalled Magento through another server</a></li>
+<li id="menu-item-1000004061"><a href="https://support.hypernode.com/knowledgebase/install-xdebug-hypernode-vagrant/">Install Xdebug on Hypernode Vagrant</a></li>
+<li id="menu-item-1000003700"><a href="https://support.hypernode.com/knowledgebase/link-domain-hypernode/">Link your domain to your Hypernode</a></li>
+<li id="menu-item-1000001052"><a href="https://support.hypernode.com/knowledgebase/magento-image-optimization-howto/">Magento image optimization howto</a></li>
+<li id="menu-item-1000002649"><a href="https://support.hypernode.com/knowledgebase/use-nodejs-npm-hypernode/">Node.js and NPM on Hypernode (to use Gulp, Sass, Compass, Less, grunt-cli, etc)</a></li>
+<li id="menu-item-1000006284"><a href="https://support.hypernode.com/knowledgebase/rabbitmq-on-hypernode/">RabbitMQ on Hypernode</a></li>
+<li id="menu-item-1000002450"><a href="https://support.hypernode.com/knowledgebase/setup-logrotation-magento-logs/">Setup log rotation for Magento logs</a></li>
+<li id="menu-item-1000002440"><a href="https://support.hypernode.com/knowledgebase/setup-pear-and-install-pear-packages/">Setup PEAR and install PEAR packages</a></li>
+<li id="menu-item-1000003391"><a href="https://support.hypernode.com/knowledgebase/setup-php-redis-admin-manage-redis-caches/">Setup php-redis-admin to manage your Redis caches</a></li>
+<li id="menu-item-1000003372"><a href="https://support.hypernode.com/knowledgebase/turn-mysql-query-logging-magento/">Turn on MySQL query logging in Magento</a></li>
+<li id="menu-item-1000003577"><a href="https://support.hypernode.com/knowledgebase/use-wkhtmltopdf-hypernode/">Use wkhtmltopdf on your Hypernode</a></li>
+<li id="menu-item-1000004652"><a href="https://support.hypernode.com/knowledgebase/working-adminer-php-hypernode/">Working with adminer.php on Hypernode</a></li>
+<li id="menu-item-1000006244"><a href="https://support.hypernode.com/knowledgebase/zero-downtime-deployment-on-hypernode/">Zero downtime deployment on Hypernode</a></li>
+</ul>
+</li>
+<li class="menu-item-has-children" id="menu-item-1500000034"><a data-icon="f" href="https://support.hypernode.com/knowledgebase_category/troubleshooting/">Troubleshooting <span class="article-count">31</span></a>
+<ul class="sub-menu">
+<li id="menu-item-1000005715"><a href="https://support.hypernode.com/knowledgebase/deadlock-database-alter-table/">Deadlock in database by ALTER TABLE enable/disable keys</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/emails-sended-hypernode-marked-spam/">Emails sent from a Hypernode are marked as spam</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/new-relic-performance-management/">Find your performance bottleneck with New Relic</a></li>
+<li id="menu-item-1000001082"><a href="https://support.hypernode.com/knowledgebase/finding-the-top-10-visitors-by-parsing-the-nginx-access-logs/">Finding the top 10 visitors by parsing the Nginx access logs</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/fixing-bad-performance-caused-by-search-engines/">Fixing bad performance caused by bots and crawlers</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/fixing-invalid-form-key-ongeldige-formuliersleutel/">Fixing Invalid form key / Ongeldige formuliersleutel</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/fixing-cart2quote-remote-code-execution/">Fixing the Cart2Quote Remote Code Execution</a></li>
+<li id="menu-item-1000000237"><a href="https://support.hypernode.com/knowledgebase/use-logs-to-debug-issues/">General troubleshooting</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/block-spammer-scanners/">How do I block spammer and scanners?</a></li>
+<li id="menu-item-1000006194"><a href="https://support.hypernode.com/knowledgebase/how-to-debug-out-of-memory-oom-events/">How to debug ‘out of memory’ (OOM) events</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/how-to-protect-magento-from-amasty-product-feed-local-file-disclosure/">How to protect Magento from Amasty Product Feed local file disclosure</a></li>
+<li id="menu-item-1000004260"><a href="https://support.hypernode.com/knowledgebase/restore-hypernode-backup/">How to restore your Hypernode from a backup</a></li>
+<li id="menu-item-1000004077"><a href="https://support.hypernode.com/knowledgebase/get-error-413-request-entity-large/">I get the error 413 Request Entity Too Large</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/identifying-and-stopping-long-running-processes/">Identifying and stopping long running processes</a></li>
+<li id="menu-item-1000003137"><a href="https://support.hypernode.com/knowledgebase/magento-front-controller-reached-100-router-match-iterations-error/">Magento “Front controller reached 100 router match iterations” error</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/magento-2-1-8-redis-issue/">Magento 2.1.8 and Redis issue</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/magento-utc-hypernode/">Magento and UTC on Hypernode</a></li>
+<li id="menu-item-1000004006"><a href="https://support.hypernode.com/knowledgebase/magento-connect-returns-unknown-ssl-protocol-error/">Magento Connect returns Unknown SSL protocol error in connection to connect20.magentocommerce.com</a></li>
+<li id="menu-item-1000004833"><a href="https://support.hypernode.com/knowledgebase/magento-disk-performance-optimization/">Magento disk performance optimization</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/my-hypernode-was-rebooted/">My Hypernode was rebooted</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/varnish-not-serving-pages-ssl/">My Magento shop using Varnish is not caching pages over SSL</a></li>
+<li id="menu-item-1000005571"><a href="https://support.hypernode.com/knowledgebase/memory-error-product-images-import/">Out of memory error on CSV product images import</a></li>
+<li id="menu-item-1000004989"><a href="https://support.hypernode.com/knowledgebase/hypernode-email-policy/">Policy for sending email on Hypernode</a></li>
+<li id="menu-item-1000005030"><a href="https://support.hypernode.com/knowledgebase/remove-magento-installation/">Remove your Magento installation</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/resolving-429-many-requests/">Resolving 429 Too Many Requests</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/resolving-502-bad-gateway-errors/">Resolving 502 Bad Gateway errors</a></li>
+<li id="menu-item-1000004605"><a href="https://support.hypernode.com/knowledgebase/set-return-path-email-sent-from-magento-shop/">Set the return-path for email sent from your Magento shop</a></li>
+<li id="menu-item-1000004279"><a href="https://support.hypernode.com/knowledgebase/soap-error-parsing-wsdl-couldnt-load-failed-load-external-entity/">SOAP error: Parsing WSDL: Couldn’t load from “”: failed to load external entity</a></li>
+<li id="menu-item-1000005753"><a href="https://support.hypernode.com/knowledgebase/using-spf-hypernode/">Using SPF on Hypernode</a></li>
+<li id="menu-item-1000004417"><a href="https://support.hypernode.com/knowledgebase/using-magento-2-web-setup-wizard/">Using the Magento 2 Web Setup Wizard on Hypernode</a></li>
+<li id="menu-item-1000005990"><a href="https://support.hypernode.com/knowledgebase/workaround-return-path-email-bug-in-magento-2/">Workaround return-path email bug in Magento 2</a></li>
+</ul>
+</li>
+<li class="menu-item-has-children" id="menu-item-1500000042"><a data-icon="e" href="https://support.hypernode.com/knowledgebase_category/usage/">Usage <span class="article-count">20</span></a>
+<ul class="sub-menu">
+<li id="menu-item-1000000269"><a href="https://support.hypernode.com/knowledgebase/clone-shop-second-hypernode/">Clone your shop on a second Hypernode for development</a></li>
+<li id="menu-item-1000000341"><a href="https://support.hypernode.com/knowledgebase/configuring-ftp/">Configure FTP/SFTP on Hypernode</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/configure-sessions-redis-magento-2/">Configure your sessions in Redis for Magento 2</a></li>
+<li id="menu-item-1000000027"><a href="https://support.hypernode.com/knowledgebase/dns-settings-hypernode/">DNS Settings Hypernode</a></li>
+<li id="menu-item-1000000900"><a href="https://support.hypernode.com/knowledgebase/how-to-override-php-settings/">How to override PHP settings</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/hypernode-systemctl-cli-tool/">Hypernode-systemctl CLI tool</a></li>
+<li id="menu-item-1000003350"><a href="https://support.hypernode.com/knowledgebase/install-wordpress-next-magento-installation/">Install WordPress next to your Magento installation</a></li>
+<li id="menu-item-1000004299"><a href="https://support.hypernode.com/knowledgebase/ipv6-on-hypernodes/">IPv6 on Hypernodes</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/link-domain-hypernode/">Link your domain to your Hypernode</a></li>
+<li id="menu-item-1000003730"><a href="https://support.hypernode.com/knowledgebase/link-ssl-certificate-hypernode/">Link your SSL certificate to your Hypernode</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/magento-utc-hypernode/">Magento and UTC on Hypernode</a></li>
+<li id="menu-item-1000005738"><a href="https://support.hypernode.com/knowledgebase/picking-useful-naming-scheme-for-hypernodes/">Picking a useful naming scheme for companies with multiple Hypernodes</a></li>
+<li id="menu-item-1000004568"><a href="https://support.hypernode.com/knowledgebase/proxy-wordpress-hypernode-cluster-domain/">Proxy WordPress from a Hypernode to a cluster domain</a></li>
+<li id="menu-item-1000005237"><a href="https://support.hypernode.com/knowledgebase/put-magento-shop-maintenance-mode/">Put your Magento shop in maintenance mode</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/redirect-from-or-to-www/">Redirect from or to www</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/set-return-path-email-sent-from-magento-shop/">Set the return-path for email sent from your Magento shop</a></li>
+<li id="menu-item-1000004974"><a href="https://support.hypernode.com/knowledgebase/temporary-up-or-downgrade-your-hypernode/">Temporary up- or downgrade your Hypernode plan</a></li>
+<li><a href="https://support.hypernode.com/knowledgebase/using-a-basic-staging-environment-magento1/">Using a basic staging environment with Magento 1</a></li>
+<li id="menu-item-1000000076"><a href="https://support.hypernode.com/knowledgebase/configure-cronjobs-on-hypernode/">Using periodic tasks (cronjobs) on Hypernode</a></li>
+<li id="menu-item-1000000029"><a href="https://support.hypernode.com/knowledgebase/use-ssl-certificates-on-your-hypernode/">Using SSL certificates on your Hypernode</a></li>
+</ul>
+</li>
+<li class="active" id="menu-item-75"><a aria-current="page" href="https://support.hypernode.com/category/changelog/">Changelog</a></li>
+</ul></div></div></div> </div> <!-- main wrapper -->
+</section><section class="dark-blue-theme last">
+<div class="footer">
+<div class="wrapper-main">
+<a class="logo" href="https://hypernode.com/" target="_blank">
+<img class="logo" src="https://static.hypernode.com/img/Hypernode-logo-diap.svg"/>
+</a>
+<div class="social-media">
+<div class="berend-botje">
+<img class="body" src="https://static.hypernode.com/img/Berend-Botje-zonder-ogen.png"/>
+<img class="eyes" src="https://static.hypernode.com/img/Berend-Botje-ogen.png"/>
+</div>
+<div class="text">
+<p><a href="https://support.hypernode.com/changelog/release-6249-larger-tmp_table_size-and-max_heap-if-tmp_on_data-option-enabled/" target="_blank">Release 6249: Larger tmp_table_size and max_heap if tmp_on_data option enabled</a></p>
+<p><a href="https://support.hypernode.com/changelog/release-6242-additional-automated-problem-diagnostic-emails/" target="_blank">Release 6242: Additional automated problem diagnostic emails</a></p>
+<p><a href="https://support.hypernode.com/changelog/release-6241-new-grow-plan-with-more-memory/" target="_blank">Release 6241: new Grow plan with more memory</a></p>
+</div>
+<div class="social-links">
+<a href="https://twitter.com/Hypernode_com" target="_blank"><span class="fab fa-twitter"></span></a>
+<a href="https://www.facebook.com/HypernodeCOM/" target="_blank"><span class="fab fa-facebook-f"></span></a>
+<a href="https://www.linkedin.com/company/byte-b-v-/" target="_blank"><span class="fab fa-linkedin-in"></span></a>
+<a href="https://stackoverflow.com/jobs/companies/byte-bv" target="_blank"><span class="fab fa-stack-overflow"></span></a>
+<a href="https://github.com/ByteInternet" target="_blank"><span class="fab fa-github"></span></a>
+</div>
+</div>
+<div class="footer-links">
+<ul>
+<p>Magento hosting</p>
+<li><a href="https://www.hypernode.com/features/">Features</a></li>
+<li><a href="https://www.hypernode.com/pricing/">Plans &amp; Pricing</a></li>
+<li><a href="https://www.hypernode.com/agency-focused/">Agency Program</a></li>
+</ul>
+<ul>
+<p>Control panel</p>
+<li><a href="https://bytenoc.nl/">System Status</a></li>
+<li><a href="https://support.hypernode.com/changelog/">Changelog</a></li>
+<li><a href="https://hypernode.uservoice.com/forums/242854-hypernode-features">Feature requests / Roadmap</a></li>
+</ul>
+<ul>
+<p>Support &amp; resources</p>
+<li><a href="https://support.hypernode.com/">Support Documentation</a></li>
+<li><a href="https://community.hypernode.io/" target="_blank">Hypernode community docs</a></li>
+<li><a href="https://www.hypernode.com/whitepapers/magento-development-white-paper" target="_blank">Whitepaper</a></li>
+<li><a href="https://www.magereport.com/" target="_blank">MageReport.com</a></li>
+</ul>
+<ul>
+<p>Company</p>
+<li><a href="https://www.hypernode.com/about-us/">About us</a></li>
+<li><a href="https://www.hypernode.com/contact-us/">Contact us</a></li>
+<li><a href="https://www.hypernode.com/blog">Blog</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-footer">
+<p class="copyright">Copyright © 2019 - Byte B.V.<br/> <a href="https://www.hypernode.com/sitemap" title="">Sitemap</a> | <a href="/assets/documents/Privacy-Policy-Hypernode.pdf" target="_blank">Privacy Policy</a> | <a href="/cookie-policy/" title="">Cookie Policy</a> | <a href="/assets/documents/Acceptable-Use-Policy-Hypernode.pdf" target="_blank">Acceptable Use Policy</a> | <a href="/assets/documents/Terms-and-Conditions-Hypernode.pdf" target="_blank"> Terms &amp; Conditions</a><br/>Support: <a href="tel:0031205216227">+31 20 521 6227</a>| <a href="mailto:support@hypernode.com">support@hypernode.com</a></p>
+</div>
+</div>
+</section><link href="https://support.hypernode.com/wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css?ver=_2.7.2_beta" id="crayon-css" media="all" rel="stylesheet" type="text/css"/>
+<script src="https://support.hypernode.com/wp-content/themes/hypernode/resource/js/general.js?ver=1.8.1" type="text/javascript"></script>
+<script src="https://support.hypernode.com/wp-content/themes/hypernode/resource/sync/js/show-menu.js" type="text/javascript"></script>
+<script src="https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201911" type="text/javascript"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _theme = {"ajaxurl":"https:\/\/support.hypernode.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script src="https://support.hypernode.com/wp-content/themes/hypernode-docs/resource/js/general.js?ver=1.8.1" type="text/javascript"></script>
+<script src="https://support.hypernode.com/wp-includes/js/wp-embed.min.js?ver=1.8.1" type="text/javascript"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"https:\/\/support.hypernode.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script src="https://support.hypernode.com/wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js?ver=_2.7.2_beta" type="text/javascript"></script>
+<script async="async" defer="defer" src="https://stats.wp.com/e-201911.js" type="text/javascript"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:7.0.1',blog:'95294060',post:'0',tz:'1',srv:'support.hypernode.com'} ]);
+	_stq.push([ 'clickTrackerInit', '95294060', '0' ]);
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"b7016a68ff","applicationID":"32016747","transactionName":"ZFRbbEYDV0oHVkZbWl0eeFtAC1ZXSVZTRlBUXktB","queueTime":0,"applicationTime":3847,"atts":"SBNYGg4ZREQ=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
