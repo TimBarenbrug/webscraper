@@ -33,7 +33,7 @@ class ChangeLogScraper(object):
             self.soup = BeautifulSoup(response.content, "html.parser")
         except Exception:
             print("No connection could be made to %s." % self.url)
-        self.date_limit = datetime.now(pytz.utc) - timedelta(weeks=4)
+        self.date_limit = datetime.now(pytz.utc) - timedelta(weeks=104)
 
     def retrieve_change_logs(self):
         """
